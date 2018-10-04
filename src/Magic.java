@@ -6,50 +6,58 @@ public class Magic {
         Scanner keyboard;
         int testing;
         String question;
+        boolean play = false;
+        String userChoice;
 
 
 
         //intialization phase
         keyboard = new Scanner(System.in);
-        System.out.println("Greetings, I am the Magic8Ball!\nWhat information do you seek?");
-        System.out.println("Ask me any yes or no question and see what fate has in store for you!");
-        question = keyboard.nextLine();
-        System.out.println("Enter a number between 1 and 100");
-        testing= keyboard.nextInt();
-        System.out.println(question);
-        if (testing<=10&&testing>=0) {
-            System.out.println("It is certain.");
-        }
-        else if(testing>10&&testing<21) {
-            System.out.print("Don't count on it.");
-        }
-        if (testing>20&&testing<=30) {
-            System.out.println("Without a doubt.");
-        }
-        else if (testing>30&&testing<=40) {
-            System.out.println("Very Doubtful.");
-        }
-        if (testing>=41&&testing<=50) {
-            System.out.println("Signs point to yes.");
-        }
-        else if (testing>50&&testing<=60){
-            System.out.println("Signs point to no.");
-        }
-        if (testing>=61&&testing<=70){
-            System.out.println("You may rely on it.");
-        }
-        else if (testing>70&&testing<=80){
-            System.out.println("Don't rely on it.");
-        }
-        if (testing>=81&&testing<=90){
-            System.out.println("Yes.");
-        }
-        else if (testing>90&&testing<=100){
-            System.out.println("No.");
-        }
+        do {
+            System.out.println("Greetings, I am the Magic8Ball!\nWhat information do you seek?");
+            System.out.println("Ask me any yes or no question and see what fate has in store for you!");
+            question = keyboard.nextLine();
+            testing = (int) (Math.random() * 100);
+            System.out.println(question);
+            if (testing <= 10 && testing >= 0) {
+                System.out.println("It is certain.");
+            } else if (testing > 10 && testing < 21) {
+                System.out.print("Don't count on it.");
+            }
+            if (testing > 20 && testing <= 30) {
+                System.out.println("Without a doubt.");
+            } else if (testing > 30 && testing <= 40) {
+                System.out.println("Very Doubtful.");
+            }
+            if (testing >= 41 && testing <= 50) {
+                System.out.println("Signs point to yes.");
+            } else if (testing > 50 && testing <= 60) {
+                System.out.println("Signs point to no.");
+            }
+            if (testing >= 61 && testing <= 70) {
+                System.out.println("You may rely on it.");
+            } else if (testing > 70 && testing <= 80) {
+                System.out.println("Don't rely on it.");
+            }
+            if (testing >= 81 && testing <= 90) {
+                System.out.println("Yes.");
+            } else if (testing > 90 && testing <= 100) {
+                System.out.println("No.");
+            }
+            do {
+                System.out.print("Would you like to play again?");
+                System.out.print(" Type \"Y or N\"");
+                userChoice = keyboard.nextLine().toLowerCase();
+                if (userChoice.equalsIgnoreCase("y")) {
+                    play = true;
+                } else if (userChoice.equalsIgnoreCase("n")) {
+                    play = false;
+                } else {
+                    System.out.println("I don't understand your answer, please answer again");
+                }
 
-
-
+            } while (!userChoice.equalsIgnoreCase("y") && !userChoice.equalsIgnoreCase("n"));
+        }while(play);
     }
 }
 /*
